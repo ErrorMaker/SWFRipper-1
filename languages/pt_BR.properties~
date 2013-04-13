@@ -1,0 +1,31 @@
+###############################
+## Arquivo para as traduçoes ##
+##    de pt_BR por jomp16    ##
+##       Versao: 0.1.0       ##
+###############################
+
+
+##########
+## Main ##
+##########
+
+WelcomeToSWFRipper=Bem vindo ao SWFRipper por jomp16!
+Version=Versão: %s
+LoadingPropertiesFile=Carregando as configurações...
+PropertiesLoaded=Configurações carregadas!
+PropertiesNotFound=Configurações não encontradas! Criando um exemplo para você, apos editar as configurações, execute novamente o programa!
+DirectoryName=A pasta onde será armazenado os downloads estão em %s
+
+#####################
+## DownloadManager ##
+#####################
+
+DownloadingFile=Baixando o arquivo: %s
+DownloadedFile=Baixado o arquivo: %s
+BypassingFile=Pulando o download desse arquivo: %s pois ele existe!
+
+############
+## Errors ##
+############
+
+InterruptedExceptionError=Ocorreu um erro ao tentar fazer um join do thread!
