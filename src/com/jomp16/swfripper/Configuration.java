@@ -27,11 +27,9 @@ import java.util.Properties;
 public class Configuration
 {
     private Properties properties = new Properties();
-    private boolean jar;
 
-    public Configuration(boolean jar) throws IOException
+    public Configuration() throws IOException
     {
-        this.jar = jar;
         try
         {
             properties.load(new InputStreamReader(new FileInputStream(System.getProperty("user.dir").replace("\\", "/") + "/config.properties")));
@@ -50,14 +48,11 @@ public class Configuration
 
     private void writeProperties() throws IOException
     {
-        if (jar)
-        {
-            InputStream inputStream = getClass().getResourceAsStream("/config.properties");
-            File file = new File(System.getProperty("user.dir").replace("\\", "/") + "/config.properties");
-            FileUtils.copyInputStreamToFile(inputStream, file);
-            inputStream.close();
-            Main.getLogging().writeUsedRAM();
-            System.exit(0);
-        }
+        InputStream inputStream = getClass().getResourceAsStream("/config.properties");
+        File file = new File(System.getProperty("user.dir").replace("\\", "/") + "/config.properties");
+        FileUtils.copyInputStreamToFile(inputStream, file);
+        inputStream.close();
+        Main.getLogging().writeUsedRAM();
+        System.exit(0);
     }
 }

@@ -30,12 +30,10 @@ public class Main
     private static Configuration configuration;
     private static Logging logging;
     private static String DirectoryName;
-    private static String RELEASE;
-    private static boolean jar;
 
     public static void main(String[] args) throws IOException
     {
-        jar = (Main.class.getResource("Main.class").toString().startsWith("jar:")) ? true : false;
+        boolean jar = (Main.class.getResource("Main.class").toString().startsWith("jar:")) ? true : false;
 
         logging = new Logging(jar);
 
@@ -44,12 +42,13 @@ public class Main
         logging.writeLine();
         logging.writeLine("LoadingPropertiesFile");
 
-        configuration = new Configuration(jar);
+        configuration = new Configuration();
 
         logging.writeLine("PropertiesLoaded");
 
         int index1 = configuration.getValue("GordonURL").indexOf("RELEASE");
-        RELEASE = Main.getConfiguration().getValue("GordonURL").substring(index1, (Main.getConfiguration().getValue("GordonURL").length()));
+        String RELEASE = Main.getConfiguration().getValue("GordonURL").substring(index1, Main.getConfiguration().getValue("GordonURL").length());
+
         DirectoryName = System.getProperty("user.dir").replace("\\", "/") + "/swf";
 
         logging.writeLine("DirectoryName", DirectoryName);

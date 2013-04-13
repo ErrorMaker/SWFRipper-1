@@ -43,11 +43,6 @@ public class DownloadGordon implements Runnable
         DownloadStuffs();
     }
 
-    private String formatURL(String moreURL)
-    {
-        return Main.getConfiguration().getValue("GordonURL") + "/" + moreURL;
-    }
-
     private void ConfigHabbo()
     {
         Main.executeTask(new DownloadManager(formatURL("config_habbo.xml"), Main.getDirectoryName(String.format(raw, RELEASE, "config_habbo.xml"))));
@@ -87,4 +82,10 @@ public class DownloadGordon implements Runnable
         // TODO: ADD MORE STUFFS LIKE HABBO.SWF, PLACEHOLDER.SWF, ROOMS.SWF, ETC
         Main.executeTask(new DownloadManager(formatURL("Habbo.swf"), Main.getDirectoryName(String.format(raw, RELEASE, "Habbo.swf"))));
     }
+
+    private String formatURL(String moreURL)
+    {
+        return Main.getConfiguration().getValue("GordonURL") + "/" + moreURL;
+    }
+
 }
